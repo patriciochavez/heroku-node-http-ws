@@ -1,6 +1,6 @@
 const fs = require('fs');
-const https = require('https');
-//const http = require('http');
+//const https = require('https');
+const http = require('http');
 const WebSocketServer = require('ws').Server;
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -11,10 +11,10 @@ const serverConfig = {
 };
 
 const app = express();
-const HTTPS_PORT = 5000;
-//const HTTP_PORT = 5000;
+//const HTTPS_PORT = 5000;
+const HTTP_PORT = 5000;
 
-const httpsServer = https.createServer(serverConfig, app).listen(process.env.PORT || HTTPS_PORT);
+//const httpsServer = https.createServer(serverConfig, app).listen(process.env.PORT || HTTPS_PORT);
 const httpServer = http.createServer(serverConfig, app).listen(process.env.PORT || HTTP_PORT);
 
 //var wss = new WebSocketServer({server: httpsServer});
