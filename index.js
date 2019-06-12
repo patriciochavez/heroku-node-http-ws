@@ -15,7 +15,7 @@ const app = express();
 const HTTP_PORT = 5000;
 
 //const httpsServer = https.createServer(serverConfig, app).listen(HTTPS_PORT);
-const httpServer = http.createServer(serverConfig, app).listen(HTTP_PORT);
+const httpServer = http.createServer(serverConfig, app).listen(process.env.PORT || 5000);
 
 //var wss = new WebSocketServer({server: httpsServer});
 
