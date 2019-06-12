@@ -37,7 +37,7 @@ app.get(/^(.+)$/, function(req, res){
             res.send("prueba ok\n");
             break;
     //default: res.sendFile( __dirname + req.params[0]); 
-    default: res.sendFile( __dirname + '/prueba.html'); 
+    default: res.send('ok\n'); 
     }
  });
 
