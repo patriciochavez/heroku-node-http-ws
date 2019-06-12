@@ -1,5 +1,6 @@
 const fs = require('fs');
-const https = require('https');
+//const https = require('https');
+const http = require('http');
 const WebSocketServer = require('ws').Server;
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -9,10 +10,12 @@ const serverConfig = {
     cert: fs.readFileSync('./server.crt'),
 };
 
-var app = express();
-var HTTPS_PORT = 5000;
+const app = express();
+//var HTTPS_PORT = 5000;
+const HTTP_PORT = 5000;
 
-var httpsServer = https.createServer(serverConfig, app).listen(HTTPS_PORT);
+//const httpsServer = https.createServer(serverConfig, app).listen(HTTPS_PORT);
+const httpServer = http.createServer(serverConfig, app).listen(HTTP_PORT);
 
 //var wss = new WebSocketServer({server: httpsServer});
 
@@ -31,9 +34,10 @@ var httpsServer = https.createServer(serverConfig, app).listen(HTTPS_PORT);
 app.get(/^(.+)$/, function(req, res){ 
     switch(req.params[0]) {
         case '/prueba.html':
-            res.send("prueba ok");
+            res.send("prueba ok\n");
             break;
-    default: res.sendFile( __dirname + req.params[0]); 
+    //default: res.sendFile( __dirname + req.params[0]); 
+    default: res.sendFile( __dirname + '/prueba.html'); 
     }
  });
 
